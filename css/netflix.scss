@@ -17,11 +17,33 @@ html, body {
   height: 40px;
 }
 
+.nineties-static {
+  opacity: 0.05;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-image: url("chrome-extension://__MSG_@@extension_id__/imgs/vhs-static-glitch-o.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  z-index: 2;
+
+  transition: opacity 1s cubic-bezier(.02, .01, .47, 1);
+
+  &.more_there {
+    opacity: 0.4;
+  }
+}
+
 #playerWrapper {
   .player-controls-wrapper {
     display: none!important;
     opacity: 0!important;
   }
+
 
 
   .player-back-to-browsing {
@@ -41,7 +63,7 @@ html, body {
     width: 80%;
     opacity: 1;
     transition: opacity 400ms ease-out;
-    z-index: 2;
+    z-index: 4;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: -moz-box;

@@ -116,15 +116,31 @@ function simplifyButtons(){
 }
 
 var oldTVStyleInterval = false;
+var oldTVStaticInterval = false;
 function addOldStyleTv(){
   console.log("90s style tv");
+
+
+  $("#playerContainer").append('<section class="nineties-static"></section>');
+
+  oldTVStaticInterval = setInterval(function(){ 
+    if ( document.querySelector("#playerWrapper video") == undefined ) {
+      clearInterval(oldTVStaticInterval)
+    }
+
+    if( Math.floor((Math.random() * 5) + 1) == 2 ) {
+      $(".nineties-static").toggleClass("more_there");
+    }
+  }, 2000);
 
   oldTVStyleInterval = setInterval(function(){ 
     if ( document.querySelector("#playerWrapper video") == undefined ) {
       clearInterval(oldTVStyleInterval)
     }
 
-    $("#playerWrapper").toggleClass("more-blur");
+    if( Math.floor((Math.random() * 5) + 1) == 2 ) {
+      $("#playerWrapper").toggleClass("more-blur");
+    }
   }, 3000);
 }
 
