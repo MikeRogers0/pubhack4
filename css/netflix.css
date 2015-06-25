@@ -2,8 +2,8 @@ html, body {
   /*background: red!important;*/ }
 
 #logo, .akiraHeader > .logo, #netflix-player .loading-view-v2 .header-container.with-logo .logo {
-  background-image: url("chrome-extension://__MSG_@@extension_id__/imgs/real-logo.png") !important;
-  background-size: auto 100%;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/imgs/logo.png") !important;
+  background-size: contain !important;
   background-repeat: no-repeat; }
   #logo:before, .akiraHeader > .logo:before, #netflix-player .loading-view-v2 .header-container.with-logo .logo:before {
     content: ''; }
@@ -41,7 +41,16 @@ html, body {
   -ms-flex-pack: center;
   align-content: center;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  top: 70%;
+  bottom: 0; }
+  #playerWrapper .nineties-player .nineties-player-inner-wrap {
+    position: absolute;
+    bottom: 20%;
+    opacity: 0;
+    transition: opacity 50ms ease-in; }
+  #playerWrapper .nineties-player:hover .nineties-player-inner-wrap {
+    opacity: 1; }
 #playerWrapper .nineties-player-inner-wrap {
   width: 100%;
   display: -webkit-flex;
@@ -69,6 +78,13 @@ html, body {
   width: 100%; }
   #playerWrapper .nineties-player-inner-wrap .fa:first-child {
     border-left: 0; }
+  #playerWrapper .nineties-player-inner-wrap .fa:last-child {
+    border-right: 0; }
+#playerWrapper video {
+  -webkit-filter: sepia(0.9) blur(1px) saturate(1.2) brightness(0.8) contrast(0.9) !important;
+  transition: -webkit-filter 500ms ease-in; }
+#playerWrapper.more-blue video {
+  -webkit-filter: sepia(1) blur(2px) saturate(1.2) brightness(0.8) contrast(1) !important; }
 
 .player-control-button {
   border: 0;

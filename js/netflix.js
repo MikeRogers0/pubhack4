@@ -67,6 +67,8 @@ function simplifyButtons(){
       );
   
 
+  $(".nineties-player .player-play").hide();
+
   $(".nineties-player .player-play").on("click", function(){
     var videoPlayer = document.querySelector("#playerWrapper video");
 
@@ -74,12 +76,18 @@ function simplifyButtons(){
       document.querySelector(".player-control-bar .play").click();
     }
     videoPlayer.playbackRate = 1;
+
+    $(".nineties-player .player-play").hide();
+    $(".nineties-player .player-pause").show();
   });
 
   $(".nineties-player .player-pause").on("click", function(){
     if( document.querySelector(".player-control-bar .pause") != undefined ){
       document.querySelector(".player-control-bar .pause").click();
     }
+
+    $(".nineties-player .player-pause").hide();
+    $(".nineties-player .player-play").show();
   });
 
   $(".nineties-player .player-stop").on("click", function(){
@@ -109,6 +117,10 @@ function simplifyButtons(){
 
 function addOldStyleTv(){
   console.log("90s style tv");
+
+  setInterval(function(){ 
+    $("#playerWrapper").toggleClass("more-blue");
+  }, 3000);
 }
 
 function add90sEffects(){
