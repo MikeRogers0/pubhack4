@@ -9,7 +9,13 @@
   "homepage_url": "http://www.pubhack.co.uk/",
   "content_security_policy": "script-src 'self'; object-src 'self';",
   "permissions": [
-	"tabs", "<all_urls>"
+    "tabs", "*://*.netflix.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["js/netflix.js"]
+    }
   ],
   "browser_action": {
     "default_title": "Go 90s",
