@@ -1,0 +1,30 @@
+html, body {
+  background: red!important;
+}
+
+#playerWrapper.nineties {
+  .player-controls-wrapper {
+    .player-slider {
+      display: none;
+    }
+
+    .player-control-bar {
+      .volume {
+        display: none;
+      }
+
+      .player-next-episode {
+        display: none;
+      }
+
+      .player-episode-selector {
+        display: none;
+      }
+
+      .player-fill-screen {
+        display: none;
+      }
+    }
+  }
+  
+}

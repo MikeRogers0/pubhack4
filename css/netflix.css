@@ -1,3 +1,15 @@
 html, body {
-  background: red!important;
-}
+  background: red !important; }
+
+#playerWrapper.nineties .player-controls-wrapper .player-slider {
+  display: none; }
+#playerWrapper.nineties .player-controls-wrapper .player-control-bar .volume {
+  display: none; }
+#playerWrapper.nineties .player-controls-wrapper .player-control-bar .player-next-episode {
+  display: none; }
+#playerWrapper.nineties .player-controls-wrapper .player-control-bar .player-episode-selector {
+  display: none; }
+#playerWrapper.nineties .player-controls-wrapper .player-control-bar .player-fill-screen {
+  display: none; }
+
+/*# sourceMappingURL=netflix.css.map */
