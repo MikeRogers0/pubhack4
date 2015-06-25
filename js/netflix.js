@@ -32,19 +32,21 @@ function makeNinetiesPlayer(){
 
 }
 
+var intervalRewind = false;
 function rewind(rewindSpeed) {    
    clearInterval(intervalRewind);
+   var videoPlayer = document.querySelector("#playerWrapper video");
    var startSystemTime = new Date().getTime();
-   var startVideoTime = video.currentTime;
+   var startVideoTime = videoPlayer.currentTime;
 
    intervalRewind = setInterval(function(){
-       video.playbackRate = 1.0;
-       if(video.currentTime == 0){
+       videoPlayer.playbackRate = 1.0;
+       if(videoPlayer.currentTime == 0){
            clearInterval(intervalRewind);
-           video.pause();
+           videoPlayer.pause();
        } else {
            var elapsed = new Date().getTime()-startSystemTime;
-           video.currentTime = Math.max(startVideoTime - elapsed*rewindSpeed/1000.0, 0);
+           videoPlayer.currentTime = Math.max(startVideoTime - elapsed*rewindSpeed/1000.0, 0);
        }
    }, 30);
 }
@@ -55,11 +57,12 @@ function simplifyButtons(){
   $("#playerContainer").append('<section class="nineties-player"></section>');
 
   $(".nineties-player").html('<div class="nineties-player-inner-wrap" id="mdx-controls-wrapper">' +
-      '<div class="player-control-button player-play play icon-player-play"></div>' +
-      '<div class="player-control-button player-pause pause icon-player-pause"></div>' +
-      '<div class="player-control-button player-stop stop icon-player-stop"></div>' +
-      '<div class="player-control-button player-rewind rewind icon-player-rewind">RW</div>' +
-      '<div class="player-control-button player-fast-forward fast-forward icon-player-fast-forward">FF</div>' +
+        '<div class="player-play play fa fa-play"></div>' +
+        '<div class="player-pause pause fa fa-pause"></div>' +
+        //'<div class="player-control-button player-rewind rewind icon-player-rewind">RW</div>' +
+        '<div class="player-fast-forward fast-forward fa fa-fast-forward"></div>' +
+        '<div class="player-control-divider"></div>' +
+        '<div class="player-stop stop fa fa-eject" style="order: 5;"></div>' +
       '</div>'
       );
   
@@ -70,7 +73,7 @@ function simplifyButtons(){
     if( document.querySelector(".player-control-bar .play") != undefined ){
       document.querySelector(".player-control-bar .play").click();
     }
-    videoPlayer.playbackSpeed = 1;
+    videoPlayer.playbackRate = 1;
   });
 
   $(".nineties-player .player-pause").on("click", function(){
@@ -83,14 +86,23 @@ function simplifyButtons(){
     $(".player-back-to-browsing")[0].click();
   });
 
-  $(".nineties-player .player-fast-forward").on("click", function(){
-    var videoPlayer = document.querySelector("#playerWrapper video");
-    videoPlayer.playbackRate = -1;
-  });
+  //$(".nineties-player .player-fast-rewind").on("mousedown", function(){
+    //var videoPlayer = document.querySelector("#playerWrapper video");
+    //rewind(videoPlayer, 100)
+  //});
 
-  $(".nineties-player .player-fast-forward").on("click", function(){
+  //$(".nineties-player .player-fast-rewind").on("mouseup", function(){
+    //clearInterval(intervalRewind);
+  //});
+
+  $(".nineties-player .player-fast-forward").on("mousedown", function(){
     var videoPlayer = document.querySelector("#playerWrapper video");
     videoPlayer.playbackRate = 2.5;
+  });
+
+  $(".nineties-player .player-fast-forward").on("mouseup", function(){
+    var videoPlayer = document.querySelector("#playerWrapper video");
+    videoPlayer.playbackRate = 1.0;
   });
 
 }
