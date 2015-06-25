@@ -9,12 +9,11 @@
   "homepage_url": "http://www.pubhack.co.uk/",
   "content_security_policy": "script-src 'self'; object-src 'self';",
   "permissions": [
-    "tabs", "*://*.netflix.com/*"
+    "tabs", "<all_urls>"
   ],
   "content_scripts": [
     {
       "matches": ["*://*.netflix.com/*"],
-      "js": ["js/netflix.js"],
       "css": [ "css/netflix.css" ]
     }
   ],
