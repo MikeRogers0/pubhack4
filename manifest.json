@@ -1,20 +1,18 @@
 {
   "name": "90s Netflix",
-  "version": "1.5.2",
+  "version": "0.0.0",
   "manifest_version": 2,
   "description": "Bring back the good old days for netflix",
-  "default_locale": "en",
   "background": {
     "scripts": ["js/background.js"]
   },
-  "homepage_url": "",
-  "default_locale": "en",
+  "homepage_url": "http://www.pubhack.co.uk/",
   "content_security_policy": "script-src 'self'; object-src 'self';",
   "permissions": [
 	"tabs", "<all_urls>"
   ],
   "browser_action": {
-    "default_title": "__MSG_browser_action__",
+    "default_title": "Go 90s",
     "default_icon": "imgs/icon.png"
   },
   "icons": {
