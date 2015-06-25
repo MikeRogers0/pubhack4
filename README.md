@@ -1,3 +1,3 @@
 # PubHack 4 - 90s Netflix
 
-By Jackson and Mike. 
+By ~~Jackson and Mike~~  #DevsdoDesign.
