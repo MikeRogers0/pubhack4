@@ -14,7 +14,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.netflix.com/*"],
-      "js": ["js/netflix.js"]
+      "js": ["js/netflix.js"],
+      "css": [ "css/netflix.css" ]
     }
   ],
   "browser_action": {
