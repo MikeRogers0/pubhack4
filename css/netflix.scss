@@ -26,5 +26,15 @@ html, body {
       }
     }
   }
+
+  .player-back-to-browsing {
+    display: none;
+  }
   
+
+  .playback-longpause-container {
+    display: none;
+
+    // Put the CSS overlay of a jaggered screen.
+  }
 }
