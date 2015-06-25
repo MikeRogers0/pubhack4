@@ -4,7 +4,8 @@ html, body {
 #logo, .akiraHeader > .logo, #netflix-player .loading-view-v2 .header-container.with-logo .logo {
   background-image: url("chrome-extension://__MSG_@@extension_id__/imgs/logo.png") !important;
   background-size: contain !important;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
   #logo:before, .akiraHeader > .logo:before, #netflix-player .loading-view-v2 .header-container.with-logo .logo:before {
     content: ''; }
 
@@ -83,7 +84,7 @@ html, body {
 #playerWrapper video {
   -webkit-filter: sepia(0.9) blur(1px) saturate(1.2) brightness(0.8) contrast(0.9) !important;
   transition: -webkit-filter 500ms ease-in; }
-#playerWrapper.more-blue video {
+#playerWrapper.more-blur video {
   -webkit-filter: sepia(1) blur(2px) saturate(1.2) brightness(0.8) contrast(1) !important; }
 
 .player-control-button {

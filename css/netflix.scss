@@ -6,6 +6,7 @@ html, body {
   background-image: url("chrome-extension://__MSG_@@extension_id__/imgs/logo.png") !important;
   background-size: contain!important;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
   
   &:before {
     content: '';
@@ -119,11 +120,12 @@ html, body {
     transition : -webkit-filter 500ms ease-in;
   }
 
-  &.more-blue {
+  &.more-blur {
     video {
       -webkit-filter: sepia(1) blur(2px) saturate(1.2) brightness(0.8) contrast(1)!important;
     }
   }
+
 }
 
 .player-control-button {

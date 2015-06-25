@@ -1,8 +1,8 @@
 {
   "name": "90s Netflix",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "manifest_version": 2,
-  "description": "Bring back the good old days for netflix",
+  "description": "Bring back the feeling of the 90s for netflix. Made at PubHack.",
   "background": {
     "scripts": ["js/background.js"]
   },
@@ -18,10 +18,6 @@
       "css": [ "css/font-awesome.css", "css/netflix.css" ]
     }
   ],
-  "browser_action": {
-    "default_title": "Go 90s",
-    "default_icon": "imgs/logo.png"
-  },
   "icons": {
   	"16": "imgs/logo.png",
     "48": "imgs/logo.png",

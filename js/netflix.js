@@ -115,11 +115,16 @@ function simplifyButtons(){
 
 }
 
+var oldTVStyleInterval = false;
 function addOldStyleTv(){
   console.log("90s style tv");
 
-  setInterval(function(){ 
-    $("#playerWrapper").toggleClass("more-blue");
+  oldTVStyleInterval = setInterval(function(){ 
+    if ( document.querySelector("#playerWrapper video") == undefined ) {
+      clearInterval(oldTVStyleInterval)
+    }
+
+    $("#playerWrapper").toggleClass("more-blur");
   }, 3000);
 }
 
