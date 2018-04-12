@@ -2,18 +2,14 @@
 var hasPlayerTester = null;
 
 function addPlayerView(){
-  var playerControls = document.querySelector("#playerWrapper .player-control-bar");
-  var playerWrapper = document.querySelector("#playerWrapper");
-  var playerWrapperSetup = document.querySelector("#playerWrapper.nineties");
-
   // If we can see the player, but it needs to be setup.
-  if ( playerControls !== null && playerWrapperSetup === null ){
+  if ( $(".nf-kb-nav-wrapper video").length >= 1 && !$(".nf-kb-nav-wrapper").hasClass('nineties') ){
     console.log("Adding player");
-    playerWrapper.className += " nineties";
+    $(".nf-kb-nav-wrapper").addClass("nineties");
     makeNinetiesPlayer();
+  } else {
+    queueTest();
   }
-
-  queueTest();
 }
 
 function queueTest(){
@@ -35,7 +31,7 @@ function makeNinetiesPlayer(){
 var intervalRewind = false;
 function rewind(rewindSpeed) {    
    clearInterval(intervalRewind);
-   var videoPlayer = document.querySelector("#playerWrapper video");
+   var videoPlayer = document.querySelector(".nf-kb-nav-wrapper video");
    var startSystemTime = new Date().getTime();
    var startVideoTime = videoPlayer.currentTime;
 
@@ -54,7 +50,7 @@ function rewind(rewindSpeed) {
 function simplifyButtons(){
   console.log("Simply buttons");
 
-  $("#playerContainer").append('<section class="nineties-player"></section>');
+  $("body").append('<section class="nineties-player"></section>');
 
   $(".nineties-player").html('<div class="nineties-player-inner-wrap" id="mdx-controls-wrapper">' +
         '<div class="player-play play fa fa-play"></div>' +
@@ -70,10 +66,10 @@ function simplifyButtons(){
   $(".nineties-player .player-play").hide();
 
   $(".nineties-player .player-play").on("click", function(){
-    var videoPlayer = document.querySelector("#playerWrapper video");
+    var videoPlayer = $(".nf-kb-nav-wrapper video")[0];
 
-    if( document.querySelector(".player-control-bar .play") != undefined ){
-      document.querySelector(".player-control-bar .play").click();
+    if( $(".nf-kb-nav-wrapper .play") != undefined ){
+      $(".nf-kb-nav-wrapper .play").click();
     }
     videoPlayer.playbackRate = 1;
 
@@ -82,8 +78,8 @@ function simplifyButtons(){
   });
 
   $(".nineties-player .player-pause").on("click", function(){
-    if( document.querySelector(".player-control-bar .pause") != undefined ){
-      document.querySelector(".player-control-bar .pause").click();
+    if( $(".nf-kb-nav-wrapper .pause") != undefined ){
+      $(".nf-kb-nav-wrapper .pause").click();
     }
 
     $(".nineties-player .player-pause").hide();
@@ -104,12 +100,12 @@ function simplifyButtons(){
   //});
 
   $(".nineties-player .player-fast-forward").on("mousedown", function(){
-    var videoPlayer = document.querySelector("#playerWrapper video");
+    var videoPlayer = $(".nf-kb-nav-wrapper video")[0];
     videoPlayer.playbackRate = 2.5;
   });
 
   $(".nineties-player .player-fast-forward").on("mouseup", function(){
-    var videoPlayer = document.querySelector("#playerWrapper video");
+    var videoPlayer = $(".nf-kb-nav-wrapper video")[0];
     videoPlayer.playbackRate = 1.0;
   });
 
@@ -120,11 +116,10 @@ var oldTVStaticInterval = false;
 function addOldStyleTv(){
   console.log("90s style tv");
 
-
-  $("#playerContainer").append('<section class="nineties-static"></section>');
+  $("body").append('<section class="nineties-static"></section>');
 
   oldTVStaticInterval = setInterval(function(){ 
-    if ( document.querySelector("#playerWrapper video") == undefined ) {
+    if ( $(".nf-kb-nav-wrapper video").length >= 1 ) {
       clearInterval(oldTVStaticInterval)
     }
 
@@ -134,12 +129,12 @@ function addOldStyleTv(){
   }, 2000);
 
   oldTVStyleInterval = setInterval(function(){ 
-    if ( document.querySelector("#playerWrapper video") == undefined ) {
+    if ( $(".nf-kb-nav-wrapper video").length >= 1 ) {
       clearInterval(oldTVStyleInterval)
     }
 
     if( Math.floor((Math.random() * 5) + 1) == 2 ) {
-      $("#playerWrapper").toggleClass("more-blur");
+      $(".nf-kb-nav-wrapper").toggleClass("more-blur");
     }
   }, 3000);
 }
